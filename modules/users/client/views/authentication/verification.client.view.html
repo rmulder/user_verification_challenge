@@ -1,0 +1,147 @@
+<div>
+    <h3 class="text-center">Validate User Data</h3>
+    <form novalidate autocomplete="off">
+        <fieldset>
+            <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.authentication.user.firstName" placeholder="First Name"
+                    readonly>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <label for="MiddleName">Middle Name</label>
+                <input type="text" id="MiddleName" name="MiddleName" class="form-control" ng-model="vm.authentication.user.additionalProvidersData.MiddleName"
+                    placeholder="Middle Name" readonly>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.authentication.user.lastName" placeholder="Last Name"
+                    readonly>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                <label for="BuildingNumber">Street/Building Number</label>
+                <input type="text" id="BuildingNumber" name="BuildingNumber" class="form-control" ng-model="vm.authentication.user.additionalProvidersData.BuildingNumber"
+                    placeholder="Street/Building #" readonly>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <label for="StreetName">Street Name</label>
+                <input type="text" id="StreetName" name="StreetName" class="form-control" ng-model="vm.authentication.user.additionalProvidersData.StreetName"
+                    placeholder="Street Name" readonly>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <label for="City">City</label>
+                <input type="text" id="City" name="City" class="form-control" ng-model="vm.authentication.user.additionalProvidersData.City"
+                    placeholder="City" readonly>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <label for="StateProvinceCode">State</label>
+                <input class="form-control" type="text" id="StateProvinceCode" name="StateProvinceCode" ng-model="vm.authentication.user.additionalProvidersData.StateProvinceCode"
+                    placeholder="State" readonly>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <label for="PostalCode">Zip Code</label>
+                <input type="text" id="PostalCode" name="PostalCode" class="form-control" ng-model="vm.authentication.user.additionalProvidersData.PostalCode"
+                    placeholder="Zip Code" readonly>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <label for="DriverLicenceNumber">Driver's Licence</label>
+                <input type="text" id="DriverLicenceNumber" name="DriverLicenceNumber" class="form-control" ng-model="vm.authentication.user.additionalProvidersData.DriverLicenceNumber"
+                    placeholder="Driver's Licence Number" readonly>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                <label for="DriverLicenceState">State Issued</label>
+                <input class="form-control" type="text" id="DriverLicenceState" name="DriverLicenceState" ng-model="vm.authentication.user.additionalProvidersData.DriverLicenceState"
+                    placeholder="State Issued" readonly>
+            </div>
+            <div class="row"></div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="dob">Date of Birth</label>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <input class="form-control" type="number" id="MonthOfBirth" name="MonthOfBirth" ng-model="vm.authentication.user.additionalProvidersData.MonthOfBirth"
+                            placeholder="Month" readonly>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <input class="form-control" type="number" id="DayOfBirth" name="DayOfBirth" ng-model="vm.authentication.user.additionalProvidersData.DayOfBirth"
+                            placeholder="Day" readonly>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <input class="form-control" type="number" id="YearOfBirth" name="YearOfBirth" ng-model="vm.authentication.user.additionalProvidersData.YearOfBirth"
+                            placeholder="Year" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                <label for="Gender">Gender</label>
+                <div>
+                    <input class="form-control" type="text" id="Gender" name="Gender" ng-model="vm.authentication.user.additionalProvidersData.Gender"
+                        placeholder="Gender" readonly>
+                </div>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" ng-model="vm.authentication.user.email" placeholder="Email"
+                    lowercase readonly>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+<div>
+    <div class="row"></div><br/>
+    <form name="vm.validationForm" ng-submit="vm.verify(vm.validationForm.$valid)" class="signin" novalidate autocomplete="off">
+        <fieldset>
+            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" show-errors>
+                <label for="consent">
+                    <input type="checkbox" id="consent" name="consent" ng-model="vm.credentials.consent" placeholder="User Consent" required> By clicking this checkbox, I hereby consent to have my personal data verified by Trulioo.
+                </label>
+                <div ng-messages="vm.validationForm.consent.$error" role="alert">
+                    <p class="help-block error-text" ng-message="required">User Consent is required.</p>
+                </div>
+            </div>
+            <div class="text-center form-group">
+                <button type="submit" class="btn btn-primary">Verify User Data</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="row" ng-if="vm.authentication.user.additionalProvidersData.verificationResults">
+    <h3 class="text-center">User Validation Results</h3>
+    <div ng-repeat="(key, val) in vm.authentication.user.additionalProvidersData.verificationResults track by $index">
+        <div ng-show="key === 'Record'">
+            <div ng-repeat="(key2, val2) in val track by key2">
+                <div ng-show="key2 === 'DatasourceResults'">
+                    <div ng-repeat="(key3, val3) in val2 track by key3">
+                        <div ng-repeat="(key4, val4) in val3 track by key4">
+                            <div ng-show="key4 === 'Errors'">
+                                <div ng-repeat="(key5, val5) in val4 track by key5">
+                                    <div ng-repeat="(key6, val6) in val5 track by key6">
+                                        <div ng-show="key6 === 'Message'">
+                                            <div class="alert alert-danger">{{val6}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="key4 === 'DatasourceFields'">
+                                <div ng-repeat="(key5, val5) in val4 track by key5">
+                                    <div ng-if="val5 && val5['Status']">
+                                        <div ng-if="val5['Status'] == 'match'">
+                                            <div class="alert alert-success">Field {{val5.FieldName}}: Verified.</div>
+                                        </div>
+                                        <div ng-if="val5['Status'] == 'missing'">
+                                            <div class="alert alert-warning">Field {{val5.FieldName}}: Missing data/unable to verify.</div>
+                                        </div>
+                                        <div ng-if="val5['Status'] == 'nomatch'">
+                                            <div class="alert alert-danger">Field {{val5.FieldName}}: Not verified.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
